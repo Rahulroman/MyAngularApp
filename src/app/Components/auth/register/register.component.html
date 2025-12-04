@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register</title>
+ 
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>Create an account</h1>
+
+    <!--
+      NOTE:
+      - form uses POST to /register as an example; change action to your server endpoint.
+      - this is HTML-only. Password "hashing" must be performed server-side after submission.
+    -->
+
+      <div class="field">
+        <label for="userName">User name</label>
+        <input
+          type="text"
+          [(ngModel)]="user.Username"
+          placeholder="Your name"
+        />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          [(ngModel)]="user.Email"
+          placeholder="you@example.com"
+          required
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="field">
+        <label for="passwordHash">Password</label>
+        <input
+          id="passwordHash"
+          name="passwordHash"
+          type="password"
+            [(ngModel)]="user.PasswordHash"
+          placeholder="Choose a strong password"
+          required
+          minlength="8"
+          maxlength="128"
+          autocomplete="new-password"
+        />
+        <div class="hint">Server should hash this value before storing — this form does not hash it.</div>
+      </div>
+
+      <div class="field">
+        <label for="mobile">Mobile phone</label>
+        <input
+          id="mobile"
+          name="mobile"
+          type="tel"
+            [(ngModel)]="user.Mobile"
+          placeholder="0123456789"
+          required
+          maxlength="15"
+          autocomplete="tel"
+          title="Enter a 10-digit number (digits only)."
+        />
+        <div class="hint">Expected format: 10 digits (you can adjust pattern to your country format).</div>
+      </div>
+
+      <div class="field">
+        <input type="submit" (click)="onRegister()" />
+      </div>
+
+  </main>
+</body>
+</html>

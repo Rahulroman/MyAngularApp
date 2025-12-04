@@ -1,0 +1,33 @@
+<div class="container py-4" *ngIf="contest">
+  <div class="card shadow p-4">
+    <h3 class="fw-bold">{{contest.contestName}}</h3>
+
+    <p>{{contest.description}}</p>
+
+    <ul class="list-group mb-3">
+      <li class="list-group-item">
+        Entry Points: <b>{{contest.entryPoints}}</b>
+      </li>
+      <li class="list-group-item">
+        Max Users: <b>{{contest.maxUsers}}</b>
+      </li>
+      <li class="list-group-item">
+        Joined Users: <b>{{contest.joinedUsers}}</b>
+      </li>
+      <li class="list-group-item">
+        Contest Date: {{contest.contestDate | date}}
+      </li>
+    </ul>
+
+    <button 
+      class="btn btn-success btn-lg w-100"
+     
+      *ngIf="!contest.joinedByCurrentUser">
+      Join Contest 🚀
+    </button>
+
+    <div class="alert alert-info text-center" *ngIf="contest.joinedByCurrentUser">
+      ✔ You have already joined this contest.
+    </div>
+  </div>
+</div>

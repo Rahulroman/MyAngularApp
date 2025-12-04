@@ -1,0 +1,13 @@
+<div class="container py-4">
+  <div class="card shadow p-4 text-center">
+    <h3 class="fw-bold">Your Wallet 💰</h3>
+
+    <div *ngIf="summary">
+      <h1 class="text-success fw-bold my-3">{{summary.totalPoints}} pts</h1>
+    </div>
+
+    <button routerLink="/user/wallet/transactions" class="btn btn-primary w-100">
+      View Transactions
+    </button>
+  </div>
+</div>

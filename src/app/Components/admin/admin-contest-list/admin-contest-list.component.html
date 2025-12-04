@@ -1,0 +1,38 @@
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="fw-bold">All Contests</h3>
+    <a routerLink="/admin/contests/create" class="btn btn-success">+ Create Contest</a>
+  </div>
+
+  <table class="table table-striped table-bordered shadow-sm">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Entry</th>
+        <th>Joined</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let c of contests">
+        <td>{{c.contestId}}</td>
+        <td>{{c.contestName}}</td>
+        <td>{{c.entryPoints}}</td>
+        <td>{{c.joinedUsers}}</td>
+        <td>{{c.status}}</td>
+        <td>{{c.contestDate }}</td>
+        <td>
+          <a 
+           
+            class="btn btn-primary btn-sm">
+            Declare Result
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

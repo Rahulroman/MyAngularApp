@@ -1,0 +1,48 @@
+<div class="container py-4">
+  <div class="card shadow p-4">
+    <h3 class="fw-bold mb-3">Create Contest</h3>
+
+    <form (ngSubmit)="save()">
+      <div class="row">
+        
+        <div class="col-md-6 mb-3">
+          <label>Contest Name</label>
+          <input class="form-control" [(ngModel)]="model.contestName" name="name" required>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>Entry Points</label>
+          <input type="number" class="form-control" [(ngModel)]="model.entryPoints" name="entry" required>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Description</label>
+          <textarea class="form-control" rows="3" [(ngModel)]="model.description" name="desc"></textarea>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Total Winners</label>
+          <input type="number" class="form-control" [(ngModel)]="model.totalWinners" name="winners">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Max Users</label>
+          <input type="number" class="form-control" [(ngModel)]="model.maxUsers" name="maxUsers">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Contest Date</label>
+          <input type="datetime-local" class="form-control" [(ngModel)]="model.contestDate" name="cdate">
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Result Declare Time</label>
+          <input type="datetime-local" class="form-control" [(ngModel)]="model.resultDeclareTime" name="rtime">
+        </div>
+
+      </div>
+
+      <button class="btn btn-primary w-100 btn-lg mt-3">Create Contest</button>
+    </form>
+  </div>
+</div>

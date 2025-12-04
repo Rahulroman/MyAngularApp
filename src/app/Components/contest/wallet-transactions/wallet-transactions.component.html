@@ -1,0 +1,31 @@
+<div class="container py-4">
+  <h3 class="fw-bold mb-3">Transaction History 📜</h3>
+
+  <table class="table table-hover shadow-sm">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Type</th>
+        <th>Points</th>
+        <th>Description</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let t of list">
+        <td>{{t.transactionId}}</td>
+        <td>
+          <span 
+            [class.text-success]="t.transactionType !== 'DEDUCT'"
+            [class.text-danger]="t.transactionType === 'DEDUCT'">
+            {{t.transactionType}}
+          </span>
+        </td>
+        <td>{{t.points}}</td>
+        <td>{{t.description}}</td>
+        <td>{{t.createdDate | date:'short'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
