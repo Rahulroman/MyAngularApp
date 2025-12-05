@@ -20,10 +20,7 @@
           <textarea class="form-control" rows="3" [(ngModel)]="model.description" name="desc"></textarea>
         </div>
 
-        <div class="col-md-4 mb-3">
-          <label>Total Winners</label>
-          <input type="number" class="form-control" [(ngModel)]="model.totalWinners" name="winners">
-        </div>
+     
 
         <div class="col-md-4 mb-3">
           <label>Max Users</label>
@@ -42,7 +39,7 @@
 
       </div>
 
-      <button class="btn btn-primary w-100 btn-lg mt-3">Create Contest</button>
+      <button class="btn btn-primary w-100 btn-lg mt-3" (click)="SaveContest()">Create Contest</button>
     </form>
   </div>
 </div>

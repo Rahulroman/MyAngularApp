@@ -14,8 +14,12 @@ private baseUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient , ) { }
 
-getCall(endpoint: string , body: any): Observable<any> {
-    return this.http.post(this.baseUrl + endpoint , body);
+getCallwithdata(endpoint: string , body: any): Observable<any> {
+    return this.http.get(this.baseUrl + endpoint , body);
+}
+
+getCall(endpoint: string ): Observable<any> {
+    return this.http.get(this.baseUrl + endpoint );
 }
 
 postCall(endpoint: string , body: any): Observable<any> {

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Contest } from '../../../models/contest.model'
+import { ApiService } from '../../../Services/core/api.service';
+
 
 @Component({
   selector: 'app-admin-contest-create',
@@ -11,20 +13,28 @@ import { Contest } from '../../../models/contest.model'
 })
 export class AdminContestCreateComponent {
 
+  constructor(private apiCall : ApiService) { }
+
 model = {
   contestName :'',
   description:'',
   entryPoints: 0,
+  TotalWinners:0,
   maxUsers: 0,
-  joinedUsers: 0,
-  resultDeclareTime: '',
   contestDate :'',
-  status :'',
-  totalWinners : 0
+   resultDeclareTime: '',
 
 }
 
+SaveContest(){
 
+  this.apiCall.postCall("Contests/CreateContest" , this.model).subscribe({
+    next: (res) => { alert(res.response);  },
+    error: (err) => {}
+  })
+
+
+}
 
 
 save(){}

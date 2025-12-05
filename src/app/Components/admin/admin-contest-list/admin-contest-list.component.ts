@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormsModule,FormGroupDirective } from '@angular/forms';
+import { ApiService } from '../../../Services/core/api.service';
+import { ContestModule } from '../../contest/contest.module';
+
 
 
 @Component({
@@ -11,22 +14,21 @@ import { FormsModule,FormGroupDirective } from '@angular/forms';
   styleUrl: './admin-contest-list.component.scss'
 })
 export class AdminContestListComponent {
- contests = [
-    {
-      contestId: 101,
-      contestName: "Mega Sunday Lottery",
-      entryPoints: 50,
-      joinedUsers: 120,
-      status: "Open",
-      contestDate: "2025-02-01"
-    },
-    {
-      contestId: 102,
-      contestName: "Daily Lucky Draw",
-      entryPoints: 10,
-      joinedUsers: 250,
-      status: "Closed",
-      contestDate: "2025-02-02"
-    }
-  ];
+
+  constructor (private apicall : ApiService) { }
+
+ contests = Inject(ContestModule);
+
+
+ ngOnInit():void {
+  this.apicall.getCall("Contests/GetAllContests").subscribe({
+    next: (res)=>{  this.contests = res; },
+    error: (err)=>{},
+  })
+
+
+
+}
+
+
 }

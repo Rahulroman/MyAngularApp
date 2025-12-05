@@ -5,7 +5,6 @@ export interface Contest {
   entryPoints: number;
   maxUsers: number;
   joinedUsers: number;
-  totalWinners :  number;
   resultDeclareTime: string;
   contestDate: string;
   status: string;
