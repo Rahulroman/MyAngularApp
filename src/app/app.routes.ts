@@ -33,7 +33,7 @@ export const routes: Routes = [
        {path : "WalletSummary" , component : WalletSummaryComponent},
         {path : "WalletTransactions" , component : WalletTransactionsComponent},
          {path : "AdminDashboard" , component : AdminDashboardComponent},
-          {path : "AdminContestList" , component : AdminContestListComponent},
+          {path : "AdminContestList" , component : AdminContestListComponent , },
            {path : "AdminContestCreate" , component : AdminContestCreateComponent},
             {path : "AdminDeclareResult" , component : AdminDeclareResultComponent},
 

@@ -20,20 +20,23 @@ userLogin : UserLogin = {
   password : ''
 }
 
-onLogin () {
-  
-  this.apiService.postCall("Auth/login" , this.userLogin).subscribe({
-    next : (res) => {
-      if(res?.response)
-        {  alert(res.response);
-          localStorage.setItem('token' , res.token.token);
-this.route.navigate(["/dashboard"]);
-          }
-    } ,
-    error : (err) => {}
-  });
+  onLogin() {
 
-}
+    this.apiService.postCall("Auth/login", this.userLogin).subscribe({
+      next: (res) => {
+        if (res?.response == "Login Success") {
+          alert(res.response);
+          localStorage.setItem('token', res.token.token);
+          this.route.navigate(["/dashboard"]);
+        }
+        else {
+          alert(res.response);
+        }
+      },
+      error: (err) => { }
+    });
+
+  }
 
 
 

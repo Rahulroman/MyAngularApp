@@ -7,6 +7,16 @@ import { catchError, EMPTY } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
+  const skipUrls = [
+      '/register',
+      '/login'
+    ];
+    
+  if (skipUrls.some(url => req.url.includes(url))) {
+    return next(req);
+  }
+
+
 var authService = inject(AuthService);
 var route = inject(Router);
 console.log("interceptor call");
